@@ -1,0 +1,31 @@
+{
+  "name": "react-subscriptions",
+  "version": "0.0.0",
+  "description": "A contract for React components to subscribe to a data source",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "coffee -o lib/ -c src/",
+    "build": "coffee -o lib/ -c src/",
+    "start": "coffee -o lib/ -cw src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sparkboard/react-subscriptions.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Matthew Huebert <mhuebert@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sparkboard/react-subscriptions/issues"
+  },
+  "homepage": "https://github.com/sparkboard/react-subscriptions",
+  "dependencies": {
+    "react": "^0.11.0",
+    "react-async": "^0.9.4",
+    "async": "^0.2.10",
+    "underscore": "^1.6.0"
+  }
+}
