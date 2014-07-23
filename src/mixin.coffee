@@ -18,6 +18,7 @@ module.exports =
   subs: (path) ->
     @state[path] || @constructor.subscriptions?(this.props)[path].default
   getInitialStateAsync: (cb) ->
+    return if window?
     @__subscriptions = {}
     tasks = {}
     subscriptions = @constructor.subscriptions?(this.props)
@@ -32,6 +33,7 @@ module.exports =
       do (path, subscription) =>
           subscription.subscribe setSubscriptionStateCallback(this, path, subscription.default)
           @__subscriptions[path] = subscription
+
   unsubscribe: ->
     for path, subscription of @__subscriptions
       subscription.unsubscribe()
