@@ -51,5 +51,8 @@ module.exports =
       newSubscriptions = @constructor.subscriptions(newProps)
       for path in pathsToUpdate
         @__subscriptions[path].unsubscribe()
-        @__subscriptions[path] = newSubscriptions[path]
-        @__subscriptions[path].subscribe setSubscriptionStateCallback(this, path)
+        if newSubscriptions[path]
+          @__subscriptions[path] = newSubscriptions[path]
+          @__subscriptions[path].subscribe setSubscriptionStateCallback(this, path)
+        else
+          delete @__subscriptions[path]
