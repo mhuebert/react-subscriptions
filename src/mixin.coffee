@@ -48,7 +48,7 @@ module.exports =
       if subscription.shouldUpdateSubscription?(this.props, newProps)
         pathsToUpdate.push(path)
     if pathsToUpdate.length > 0
-      newSubscriptions = @type.subscriptions(newProps)
+      newSubscriptions = @constructor.subscriptions(newProps)
       for path in pathsToUpdate
         @__subscriptions[path].unsubscribe()
         @__subscriptions[path] = newSubscriptions[path]
